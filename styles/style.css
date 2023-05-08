@@ -1,0 +1,120 @@
+body {
+    display: flex;
+    justify-content: center;
+    margin: 7%;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+#calculatorFrame {
+    width: 40%;
+    background-color: #0076CE;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    align-items: center;
+}
+
+#outputWindow {
+    width: 85%;
+    height: 50px;
+    background-color: white;
+    margin-top: 30px;
+    color: black;
+    border: 3px black solid;
+    border-top: 5px black solid;
+    border-bottom: 5px black solid;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#outputNumber {
+    margin-right: 15px;
+    font-family: 'Calculator', sans-serif;
+    font-weight: bolder;
+    font-size: 48px;
+
+}
+
+#numberBox {
+    width: 98%;
+    height: 90%;
+    text-align: right;
+    font-size: large;
+}
+
+#makeModelContainer {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#make,
+#model {
+    padding: 0 35px;
+    color: white;
+    margin-top: 20px;
+}
+
+#solarPanel {
+    width: 35%;
+    height: 50px;
+    margin-left: 50px;
+    align-self: flex-start;
+    border: 2px solid black;
+    display: flex;
+}
+
+.solarBox {
+    background-color: grey;
+    width: 25%;
+    border: 1px solid black;
+}
+
+#buttonColumns {
+    border: 1px black solid;
+    display: flex;
+    width: 90%;
+    margin-top: 25px;
+    border-radius: 3px;
+    margin: 15px;
+    padding: 15px;
+    gap: 15px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    gap: 5px;
+}
+
+.button {
+    background-color: white;
+    border: 2px black solid;
+    border-radius: 5px;
+    padding: 0 0 40px 7px;
+    box-sizing: border-box;
+    width: 85px;
+    height: 70px;
+}
+
+.button.red {
+    background-color: red;
+    color: white;
+}
+
+.lastColumn {
+    margin-left: auto;
+}
+
+#equalsButton {
+    flex-grow: 2;
+}

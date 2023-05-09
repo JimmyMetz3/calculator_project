@@ -2,7 +2,7 @@ const outputNumber = document.getElementById("outputNumber")
 const btn = document.querySelectorAll(".button")
 let outputNumberList = [];
 let cachedValue = [];
-
+let chosenOperator;
 
 function isNumberKey(evt) {
     let charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -21,21 +21,38 @@ function clearOutputWindow() {
 
 function clearCachedValue() {
     cachedValue = [];
+    chosenOperator = [];
 }
 
-function add() {
+function storeFirstValue(){
     let firstValue = outputNumberList.join('');
     cachedValue.push(firstValue);
     console.log(outputNumber.innerText)
+}
+
+function add() {
+    storeFirstValue();
     clearOutputWindow();
-    return
+    chosenOperator = "+"
 };
+
+function subtract() {
+    storeFirstValue();
+    clearOutputWindow();
+    chosenOperator = "="
+}
 
 function equals() {
     let secondNumber = outputNumber.innerText
-    let sum = (+cachedValue) + (+secondNumber)
-    outputNumberList = [sum]
-    outputNumber.innerText = sum;
+    let result
+    if (chosenOperator === "+"){
+        result = (+cachedValue) + (+secondNumber)
+    } else if(chosenOperator === "-"){
+        console.log(result)
+        result = (+cachedValue) - (+secondNumber)
+    }
+    outputNumberList = [result]
+    outputNumber.innerText = result;
     clearCachedValue();
     return
 }
@@ -67,6 +84,12 @@ clearButton.addEventListener("click", () => {
 const additionButton = document.getElementById("additionButton")
 additionButton.addEventListener("click", () => {
     add();
+})
+
+const subtractionButton = document.getElementById("subtractionButton")
+subtractionButton.addEventListener("click", ()=>{
+    subtract();
+    console.log(`Cached Value: ${cachedValue} Newest Number ${outputNumberList}`)
 })
 
 const equalsButton = document.getElementById("equalsButton")

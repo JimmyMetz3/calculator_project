@@ -24,6 +24,11 @@ function clearCachedValue() {
     chosenOperator = [];
 }
 
+function clearButton() {
+    clearOutputWindow();
+    clearCachedValue();
+}
+
 function storeFirstValue() {
     let firstValue = outputNumberList.join('');
     cachedValue.push(firstValue);
@@ -72,25 +77,4 @@ const btns = btn.forEach((e) => {
             return
         }
     })
-})
-
-const clearButton = document.getElementById("clearButton");
-clearButton.addEventListener("click", () => {
-    clearOutputWindow();
-    clearCachedValue();
-})
-
-const additionButton = document.getElementById("additionButton")
-additionButton.addEventListener("click", () => {
-    add();
-})
-
-const subtractionButton = document.getElementById("subtractionButton")
-subtractionButton.addEventListener("click", () => {
-    subtract();
-})
-
-const equalsButton = document.getElementById("equalsButton")
-equalsButton.addEventListener("click", () => {
-    equals();
 })

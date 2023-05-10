@@ -24,7 +24,7 @@ function clearCachedValue() {
     chosenOperator = [];
 }
 
-function storeFirstValue(){
+function storeFirstValue() {
     let firstValue = outputNumberList.join('');
     cachedValue.push(firstValue);
     console.log(outputNumber.innerText)
@@ -39,16 +39,15 @@ function add() {
 function subtract() {
     storeFirstValue();
     clearOutputWindow();
-    chosenOperator = "="
+    chosenOperator = "-"
 }
 
 function equals() {
     let secondNumber = outputNumber.innerText
     let result
-    if (chosenOperator === "+"){
+    if (chosenOperator === "+") {
         result = (+cachedValue) + (+secondNumber)
-    } else if(chosenOperator === "-"){
-        console.log(result)
+    } else if (chosenOperator === "-") {
         result = (+cachedValue) - (+secondNumber)
     }
     outputNumberList = [result]
@@ -87,9 +86,8 @@ additionButton.addEventListener("click", () => {
 })
 
 const subtractionButton = document.getElementById("subtractionButton")
-subtractionButton.addEventListener("click", ()=>{
+subtractionButton.addEventListener("click", () => {
     subtract();
-    console.log(`Cached Value: ${cachedValue} Newest Number ${outputNumberList}`)
 })
 
 const equalsButton = document.getElementById("equalsButton")

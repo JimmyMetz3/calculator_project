@@ -11,7 +11,7 @@ function isNumberKey(evt) {
         return evt.key;
     }
     if (charCode != 46 && charCode > 31
-        && (charCode < 48 || charCode > 57))
+        && (charCode < 49 || charCode > 57))
         return false;
     console.log(evt.which)
     return evt.key;
@@ -79,6 +79,15 @@ function percent() {
     clearCachedValue();
 }
 
+function PosNegValue() {
+    if (outputNumberList.includes("-")) {
+        outputNumberList.shift();
+    } else if (!outputNumberList.includes("-")) {
+        outputNumberList.unshift("-");
+    }
+    outputNumber.innerText = outputNumberList.join('');
+}
+
 function equals() {
     let secondNumber = outputNumber.innerText
     let result
@@ -132,5 +141,4 @@ document.addEventListener("keydown", (e) => {
     }
 })
 
-document.addEventListener()
 

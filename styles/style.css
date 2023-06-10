@@ -118,3 +118,7 @@ h3 {
 #equalsButton {
     flex-grow: 2;
 }
+
+.highlight {
+    opacity: 0.5;
+}

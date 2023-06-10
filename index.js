@@ -11,7 +11,7 @@ function isNumberKey(evt) {
         return evt.key;
     }
     if (charCode != 46 && charCode > 31
-        && (charCode < 49 || charCode > 57))
+        && (charCode < 47 || charCode > 57))
         return false;
     console.log(evt.which)
     return evt.key;
@@ -88,6 +88,12 @@ function PosNegValue() {
     outputNumber.innerText = outputNumberList.join('');
 }
 
+function squareRoot() {
+    let sqrtNum = outputNumberList.join('');
+    let result = Math.sqrt(sqrtNum);
+    outputNumber.innerText = result;
+}
+
 function equals() {
     let secondNumber = outputNumber.innerText
     let result
@@ -111,7 +117,7 @@ const btns = btn.forEach((e) => {
         keySelectionHighlight(e)
         let newestNumber = e.innerText;
         const numberTest = Number(newestNumber)
-        if (numberTest || newestNumber === ".") {
+        if (numberTest || newestNumber === "." || newestNumber === "0") {
             if (outputNumberList.includes(".") && newestNumber === ".") {
                 return
             } else {
@@ -126,7 +132,7 @@ const btns = btn.forEach((e) => {
 
 document.addEventListener("keydown", (e) => {
     let number = isNumberKey(e)
-    console.log(`${e.key} was pressed`)
+    console.log(`${e.key} was pressed ${e.code}`)
     // console.log(number)
     if (number === "." || number) {
         if (outputNumberList.includes(".") && number === ".") {

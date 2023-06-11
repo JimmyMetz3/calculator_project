@@ -1,8 +1,10 @@
 const outputNumber = document.getElementById("outputNumber")
 const btn = document.querySelectorAll(".button")
 let outputNumberList = [];
-let cachedValue = [];
+let firstNumber = [];
 let chosenOperator;
+let secondNumber;
+let result;
 
 function isNumberKey(evt) {
     let charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -34,8 +36,16 @@ function clearOutputWindow() {
 }
 
 function clearCachedValue() {
-    cachedValue = [];
+    firstNumber = [];
+    // chosenOperator = [];
+}
+
+function mrc() {
+    clearOutputWindow();
+    clearCachedValue();
+    result = 0;
     chosenOperator = [];
+    secondNumber = 0;
 }
 
 function clearButton() {
@@ -44,13 +54,20 @@ function clearButton() {
 }
 
 function storeFirstValue() {
-    let firstValue = outputNumberList.join('');
-    cachedValue.push(firstValue);
-    console.log(outputNumber.innerText)
+    if (result === undefined) {
+        let firstValue = outputNumberList.join('');
+        firstNumber.push(firstValue);
+        console.log(outputNumber.innerText)
+    }
+    else {
+
+    }
 }
 
 function add() {
+    checkForExistingOperator();
     storeFirstValue();
+    secondNumber = outputNumber.innerText
     clearOutputWindow();
     chosenOperator = "+";
 };
@@ -76,7 +93,7 @@ function divide() {
 function percent() {
     storeFirstValue();
     clearOutputWindow();
-    let result = (+cachedValue) / 100;
+    let result = (+firstNumber) / 100;
     outputNumberList = [result];
     outputNumber.innerText = result;
     clearCachedValue();
@@ -98,27 +115,37 @@ function squareRoot() {
 }
 
 function equals() {
-    let secondNumber = outputNumber.innerText
-    let result
+    secondNumber = outputNumber.innerText
+    // let result
     if (chosenOperator === "+") {
-        result = (+cachedValue) + (+secondNumber);
+        result = (+firstNumber) + (+secondNumber);
     } else if (chosenOperator === "-") {
-        result = (+cachedValue) - (+secondNumber);
+        result = (+firstNumber) - (+secondNumber);
     } else if (chosenOperator === "*") {
-        result = (+cachedValue) * (+secondNumber);
+        result = (+firstNumber) * (+secondNumber);
     } else if (chosenOperator === "/") {
         if (secondNumber === "0") {
             outputNumber.innerText = "Cut that out"
             return
         } else {
-            result = (+cachedValue) / (+secondNumber);
+            result = (+firstNumber) / (+secondNumber);
         }
 
     }
     outputNumberList = [result];
     outputNumber.innerText = result;
-    clearCachedValue();
+    firstNumber = result; // changing the first value to the result
+    // clearCachedValue();
     return
+}
+
+function checkForExistingOperator() {
+    if (chosenOperator === "+") {
+        equals()
+        chosenOperator = "";
+        // firstNumber = result;
+
+    }
 }
 
 const btns = btn.forEach((e) => {

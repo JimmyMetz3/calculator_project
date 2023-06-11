@@ -54,7 +54,7 @@ function clearButton() {
 }
 
 function storeFirstValue() {
-    if (result === undefined) {
+    if (result === 0) {
         let firstValue = outputNumberList.join('');
         firstNumber.push(firstValue);
         console.log(outputNumber.innerText)
@@ -67,7 +67,7 @@ function storeFirstValue() {
 function add() {
     checkForExistingOperator();
     storeFirstValue();
-    secondNumber = outputNumber.innerText
+    // secondNumber = outputNumber.innerText
     clearOutputWindow();
     chosenOperator = "+";
 };
@@ -143,6 +143,7 @@ function checkForExistingOperator() {
     if (chosenOperator === "+") {
         equals()
         chosenOperator = "";
+        outputNumber.innerText = result;
         // firstNumber = result;
 
     }

@@ -106,8 +106,14 @@ function equals() {
         result = (+cachedValue) - (+secondNumber);
     } else if (chosenOperator === "*") {
         result = (+cachedValue) * (+secondNumber);
-    } else if (chosenOperator) {
-        result = (+cachedValue) / (+secondNumber);
+    } else if (chosenOperator === "/") {
+        if (secondNumber === "0") {
+            outputNumber.innerText = "Cut that out"
+            return
+        } else {
+            result = (+cachedValue) / (+secondNumber);
+        }
+
     }
     outputNumberList = [result];
     outputNumber.innerText = result;

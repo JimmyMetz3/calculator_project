@@ -11,7 +11,7 @@ h3 {
 }
 
 #calculatorFrame {
-    width: 40%;
+    width: 480px;
     background-color: #0076CE;
     display: flex;
     flex-direction: column;
